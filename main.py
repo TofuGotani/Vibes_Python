@@ -10,7 +10,7 @@ import json
 import requests
 import functools
 
-ASCII_LETTERS = list('abcdefghijklmnopqrstuvwxyz') + ['enter', 'tab']
+ASCII_LETTERS = list('abcdefghijklmnopqrstuvwxyz') + ['enter', 'tab', 'space']
 SCREENSHOT_TIME = 5  # second
 # API_URL = 'http://localhost:4000/api/v1/ocr'
 API_URL = 'https://tofugotani-vibes.herokuapp.com/api/v1/ocr'  # 本番環境
