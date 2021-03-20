@@ -2,7 +2,7 @@ import asyncio
 import websockets
 import keyboard
 
-ASCII_LETTERS = list('abcdefghijklmnopqrstuvwxyz') + ['enter', 'tab']
+ASCII_LETTERS = list('abcdefghijklmnopqrstuvwxyz') + ['enter', 'tab', 'space', 'delete', 'ctrl', 'shift']
 
 
 async def sender(websocket, path):
