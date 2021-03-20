@@ -30,7 +30,7 @@ async def get_praise_text() -> str:
 
     screen_shot = await loop.run_in_executor(None, pyautogui.screenshot)
     buffered = BytesIO()
-    screen_shot.convert('RGBA')
+    screen_shot = screen_shot.convert('RGB')
     screen_shot.save(buffered, format='JPEG')
     image_str = base64.b64encode(buffered.getvalue()).decode()
     request_json = {'data': image_str}
