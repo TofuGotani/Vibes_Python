@@ -12,8 +12,8 @@ import functools
 
 ASCII_LETTERS = list('abcdefghijklmnopqrstuvwxyz') + ['enter', 'tab']
 SCREENSHOT_TIME = 5  # second
-# API_URL = 'http://localhost:4000/api/v1/ocr'
-API_URL = 'https://tofugotani-vibes.herokuapp.com/api/v1/ocr'  # 本番環境
+API_URL = 'http://localhost:4000/api/v1/ocr'
+# API_URL = 'https://tofugotani-vibes.herokuapp.com/api/v1/ocr'  # 本番環境
 WAIT_API_TIME = 30
 
 
@@ -51,8 +51,12 @@ async def send_json(websocket, key: str, response: str):
     if response != '':
         response = json.loads(response)
     message = response['message'] if 'message' in response else ''
+    print(response)
+    if(key == ''):
+        ret = {'key': key, 'praise': {'isPraise': message['text'] != '','praiseData': {'text': message['text'],'cats': message['cats']}}}
+    else:
+        ret = {'key': key, 'praise': {'isPraise': False,'praiseData': {'text':'','cats':0}}}
 
-    ret = {'key': key, 'praise': {'isPraise': message != '', 'text': message}}
 
     print(json.dumps(ret).encode())
 
